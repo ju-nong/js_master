@@ -21,6 +21,15 @@ git branch -M main   (몰라)
 git remote set-url origin https://github.com/ju-nong/js_master.git   (위에서 오류 나서 http 주소로 바꿈)
 git remote -v   (remote 확인)
 git push -u origin main   (다시 푸쉬하니까 됐음)
+======================================
+위에 것은 첫 시도, 다음부터는
+모든 파일을 로컬저장소 위에 같은 경우는 D:/HTML 경로로 모두 옮기고
+
+cd D:/HTML		(로컬 저장소로 이동)
+git add .			(저장소 파일 모두 추가)
+git commit -m "커밋!"	(커밋)
+git branch -M main		(여전히 모름)
+git push -u origin main	(푸쉬!)
 
 
 ======================================
