@@ -1,0 +1,53 @@
+cd D:/HTML   (로컬 저장소로 이동)
+git init   (저장소 초기화)
+git status   (저장소 상태 확인)
+
+git config --global user.name "ju-nong"    (이름 설정)
+git config --global user.email iiiuooyoo@gmail.com   (이메일 설정)
+
+touch .gitignore   (.gitconfig 파일은 있는게 좋다고 했음, 만듦)
+git add .gitignore   (.gitconfig 추가)
+git commit -m'lnitialize Git repository'   (커밋하기, 설명 적기)
+
+git remote add origin git@github.com:ju-nong/js_master.git   (원격 저장소, 이거 주소 아님)
+git branch -M main   (몰라)
+git push -u origin main   (푸쉬)
+echo "# js_master" >> README.md   (readme 파일도 만들어)
+git init   (왜 초기화 했지?)
+git add README.md   (추가)
+git commit -m "first commit"   (한 번더 커밋)
+git branch -M main   (몰라)
+
+git remote set-url origin https://github.com/ju-nong/js_master.git   (위에서 오류 나서 http 주소로 바꿈)
+git remote -v   (remote 확인)
+git push -u origin main   (다시 푸쉬하니까 됐음)
+
+
+======================================
+밑에 있는건 원본 이해 안 되면 보도록 하자
+   36  git init
+   37  git status
+   38  git log
+   39  git config --global user.name "ju-nong"
+   40  git config --global user.email iiiuooyoo@gmail.com
+   41  cat ~/.gitconfig
+   42  touch .gitignore
+   43  git add .gitignore
+   44  git commit -m'lnitialize Git repository'
+   45  git status
+   46  git log
+   47  git remote add origin git@github.com:ju-nong/js_master.git
+   48  git branch -M main
+   49  git push -u origin main
+   50  echo "# js_master" >> README.md
+   51  git init
+   52  git add README.md
+   53  git commit -m "first commit"
+   54  git branch -M main
+   55  git remote add origin git@github.com:ju-nong/js_master.git
+   56  git push -u origin main
+   57  git remote -v
+   58  git remote set-url origin https://github.com/ju-nong/js_master.git git push -u origin master
+   59  git remote set-url origin https://github.com/ju-nong/js_master.git
+   60  git remote -v
+   61  git push -u origin main
