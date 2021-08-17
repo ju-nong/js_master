@@ -13,6 +13,7 @@ const booleanOn = true;
 const booleanOff = false;
 const wallet = null;    // 자연적 발생X, 비어있다라는 뜻
 const brain;            // undefined  , 비어있음
+// 또 다른 예로 NaN(Not a Number)이 있는데 이것은 숫자가 아님
 
 
 // Array(배열)
@@ -69,9 +70,84 @@ console.log(ex);
 
 
 
-const varName = "string";
-console.log(typeof varName);        // 데이터 타입 확인(typeof(varName)도 가능)
+// Data Type 관련
+const varName = "100";
+console.log(typeof varName);        // 타입 확인, typeof(varName)도 가능
+
+console.log(parseInt(varName));     // 문자열을 정수형으로 변환해줌
+console.log(isNaN(varName));        // NaN이면 true
 
 
 
-console.log("커밋 테스트2");
+/*
+    연산자, 조건문은 다 알잖아
+    특이점이라면 ==은 값이 같으면 true (0 == "0", 0 == false, 0 == [])
+    ===은 타입까지 같아야 true
+    0 != "0"은 false, 0 !== "0" true
+*/
+
+
+
+console.dir(document);      // json 형태로 보여줌
+document.title = "Title change!";
+
+
+/*
+    document.getElementById("Id");
+    XXX.id
+    XXX.className
+    XXX.innerText
+
+    jquery 선택자처럼 사용 가능
+    document.querySelector(".className h1");
+    근데 첫 번째 element만 가져옴
+
+    그럴 땐
+    document.querySelectorAll(".className h1");
+    위 메소드를 사용하여 array 형식으로 가져 옴
+
+    console.dir(xxx);
+    dir 메소드를 사용하고 style을 찾아서 자바스크립트에서 사용하는
+    style명이 무엇인지 확인
+    xxx.style.color = "blue"
+    
+
+    xxx.addEventListener("click", funName);
+    xxx를 click하면 funName 함수를 실행한다.
+
+    또 다른 방법
+    xxx.onclick = funName; 위와 같음
+    하지만 addEventListener를 사용하면 removeEventListener를 사용하여
+    이벤트 삭제 가능해서 addEventListener를 선호한다.
+
+    body는 특별해서 document.body 형태로 가져올 수 있다
+    나머지 element는 querySelector 같은 메소드로 가져 와야 됨
+    window 객체 : 브라우저의 요소, 모든 변수를 담고 있는 객체, 한마디로 대빵
+    저건 그냥 window 써서 가져옴
+    
+
+    꿀팁
+    element에 event를 찾는 방법
+    https://developer.mozilla.org/ko/docs/Web/API/HTMLElement
+    console.dir(XXX)해서 나오는 것 중에
+    on뭐시기가 붙은 것들은 eventListener
+
+    자바스크립트에서 되도록이면 .style을 사용하여
+    스타일을 바꾸지마라
+    자바스크립트는 이벤트나 애니메이션 담당이다
+    className을 변경하여 바꿔주던지 하셈
+
+    className을 이용하면 전에 있던 class를 무시하고 바꿈
+    그것을 방지하기 위해 classList가 있음
+
+    ex)
+    const clickClass = "clicked";       //찾는 class명
+    if(XXX.classList.contains(clickClass)){
+        XXX.classList.remove(clickClass);
+    }else{
+        XXX.classList.add(clickClass);
+    }
+    
+    위에 코드를 대체하는 함수도 있음
+    XXX.classList.toggle("clicked");
+*/

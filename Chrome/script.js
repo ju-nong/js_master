@@ -1,3 +1,7 @@
-const age = prompt("How old are you?");
+const h1 = document.querySelector(".hello h1");
 
-console.log(age);
+function clickEvent(){
+    h1.classList.toggle("active");
+}
+
+h1.addEventListener("click", clickEvent);
