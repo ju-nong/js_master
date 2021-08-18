@@ -2,6 +2,7 @@
 const sex = "Male";     // 바뀌지 않는 값 상수
 let age = 21;           // 바뀌는 값 변수(규칙 O)
 var hobby = "Game";     // 요즘은 var 안 씀(규칙 X, 보호 X)
+const HIDDEN_CLASSNAME = "hidden";      // string만 포함된 변수는 대문자로 표기하는 관습
 
 
 
@@ -154,9 +155,14 @@ document.title = "Title change!";
 
 
 
-// 길이
+// string 관련
 const userName = "이준용";
 console.log(userName.length);       // 문자의 길이가 정수형으로 나옴
+
+const lorem = "Hello";                      // 문자열 합치기
+const inputName = "World!";
+const intro = lorem + " " + inputName;      // 구식 방법
+const format = `${lorem} ${inputName}`;     // 보기 좋음, 규칙 ``(백틱)쓰고 변수를 ${}로 감쌈
 
 
 
@@ -180,3 +186,15 @@ function onLogin(event){
 
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", onLogin);
+
+
+
+/* localStorage!! 매우 많이 씀
+    브라우저가 가지고 있는 DB같은 API!
+    웹 사이트를 나가도 로그인이 유지되거나
+    하루동안 팝업 안 보기 등 있잖슴
+    위치 : 개발자모드 > Application > Storage
+*/
+localStorage.setItem("keyName", "valueName");       // 저장
+localStorage.getItem("keyName");        // 불러오기, 해당 key가 없으면 null 반환
+localStorage.removeItem("keyName");     // 삭제
