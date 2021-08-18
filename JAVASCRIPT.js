@@ -151,3 +151,32 @@ document.title = "Title change!";
     위에 코드를 대체하는 함수도 있음
     XXX.classList.toggle("clicked");
 */
+
+
+
+// 길이
+const userName = "이준용";
+console.log(userName.length);       // 문자의 길이가 정수형으로 나옴
+
+
+
+/* form 관련
+    input 태그에는 required나 maxlength처럼
+    유효성 검사를 해주는 속성이 존재함ㅇㅇ
+    근데 이것을 작동시키기 위해선 form태그 안에
+    존재해야됨
+*/
+
+
+
+/* event 관련
+    element에 event가 발생했을때
+    함수에 첫번째 인자를 통해서 event object를 받을 수 있다
+    인자명은 event나 e로 적어주는 것이 관습이다
+*/
+function onLogin(event){
+    event.preventDefault();     // form에 submit을 막아줌
+}
+
+const loginForm = document.getElementById("login-form");
+loginForm.addEventListener("submit", onLogin);
