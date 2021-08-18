@@ -1,3 +1,5 @@
+// document 메소드 위주로 정리 한 번 싹 해야 될 듯, 내일 알아서 하셈
+
 // Variable Type
 const sex = "Male";     // 바뀌지 않는 값 상수
 let age = 21;           // 바뀌는 값 변수(규칙 O)
@@ -22,6 +24,7 @@ const week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 console.log(week[0]);       // 출력
 week[1] = "I hate Monday";  // 수정
 week.push("birthday");      // 추가
+console.log(week.length);   // 배열의 길이 출력
 
 
 // Object(객체)
@@ -71,13 +74,13 @@ console.log(ex);
 
 
 
-// Data Type 관련
+// 데이터 타입 변경 관련
 const varName = "100";
 console.log(typeof varName);        // 타입 확인, typeof(varName)도 가능
 
-console.log(parseInt(varName));     // 문자열을 정수형으로 변환해줌
+console.log(parseInt(varName));     // 문자 -> 숫자
+console.log(String(100));           // 숫자 -> 문자
 console.log(isNaN(varName));        // NaN이면 true
-
 
 
 /*
@@ -164,6 +167,11 @@ const inputName = "World!";
 const intro = lorem + " " + inputName;      // 구식 방법
 const format = `${lorem} ${inputName}`;     // 보기 좋음, 규칙 ``(백틱)쓰고 변수를 ${}로 감쌈
 
+const second = "5";
+console.log(second.padStart(2, "0"));       // 시계 만들때 유용, (원하는 글자 수, 여백 채울 글자)
+console.log(second.padEnd(2, "0"));         // 위와 같음, 1 : 05, 2 : 50 형태로 출력
+
+
 
 
 /* form 관련
@@ -189,7 +197,8 @@ loginForm.addEventListener("submit", onLogin);
 
 
 
-/* localStorage!! 매우 많이 씀
+// API 관련
+/*  localStorage!! 매우 많이 씀
     브라우저가 가지고 있는 DB같은 API!
     웹 사이트를 나가도 로그인이 유지되거나
     하루동안 팝업 안 보기 등 있잖슴
@@ -198,3 +207,40 @@ loginForm.addEventListener("submit", onLogin);
 localStorage.setItem("keyName", "valueName");       // 저장
 localStorage.getItem("keyName");        // 불러오기, 해당 key가 없으면 null 반환
 localStorage.removeItem("keyName");     // 삭제
+
+/*  date!! 이것도 매우 많이 씀
+    날짜 관련해서 유용하게 쓰임
+*/
+const date = new Date();
+console.dir(date);              // 목록들 자세히 나오니까 찾아봐
+console.log(date.getDate(), date.getHours());    // 등등
+
+// Math!! 안 쓰이는 곳이 없음
+Math.random();      // 난수 발생
+Math.random() * 10; // 0.0 ~ 9.9 대충 요정도 난수 발생
+Math.round(1.5);    // 반올림, 2
+Math.floor(1.9);    // 내림, 1
+Math.ceil(1.1);    // 올림, 2
+Math.floor(Math.random() * 10);     //0 ~ 9까지 나옴
+
+
+
+// setInterval, setTimeout
+function setTest(){
+    console.log("하하");
+}
+
+setInterval(setTest, 5000);       // 일정한 시간마다 함수 반복 (함수명, ms단위)
+setTimeout(setTest, 5000);        // 일정 시간 뒤 함수 호출 (함수명, ms단위)
+
+
+
+// createElement!
+const img = document.createElement("img");      // img 요소를 만든다
+img.src = "/img/test.img";      // img 주소 설정
+
+
+
+// append
+document.body.appendChild(img);     // body에 맨 마지막 자식으로 추가
+document.body.prependChild(img);     // body에 맨 첫 자식으로 추가
