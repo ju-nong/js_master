@@ -26,6 +26,14 @@ week[1] = "I hate Monday";  // 수정
 week.push("birthday");      // 추가
 console.log(week.length);   // 배열의 길이 출력
 
+const newWeek1 = week.filter(day => day !== "Mon");      // filter, true인 값으로 새로운 array 구성
+
+function arrayFilter(day){
+    return day !== "Tue";
+}
+const newWeek2 = week.filter(arrayFilter);      // 함수명 적어서도 가능
+
+
 
 // Object(객체)
 const my = {        // object명, property(속성)들
@@ -81,6 +89,12 @@ console.log(typeof varName);        // 타입 확인, typeof(varName)도 가능
 console.log(parseInt(varName));     // 문자 -> 숫자
 console.log(String(100));           // 숫자 -> 문자
 console.log(isNaN(varName));        // NaN이면 true
+
+const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dayString = JSON.stringify(day);      // object를 문자열로 바꿔줌 중요!
+console.log(dayString);
+console.log(JSON.parse(dayString));         // 문자열을 object로
+
 
 
 /*
@@ -190,6 +204,9 @@ console.log(second.padEnd(2, "0"));         // 위와 같음, 1 : 05, 2 : 50 형
 */
 function onLogin(event){
     event.preventDefault();     // form에 submit을 막아줌
+
+    console.log(event.target);      // 이벤트가 발생된 element를 가르킴
+    console.log(event.target.parentElement);        // 부모 element
 }
 
 const loginForm = document.getElementById("login-form");
@@ -214,6 +231,7 @@ localStorage.removeItem("keyName");     // 삭제
 const date = new Date();
 console.dir(date);              // 목록들 자세히 나오니까 찾아봐
 console.log(date.getDate(), date.getHours());    // 등등
+console.log(Date.now());        // 밀리초 단위로 숫자 반환 (key값으로 많이 사용)
 
 // Math!! 안 쓰이는 곳이 없음
 Math.random();      // 난수 발생
@@ -237,10 +255,55 @@ setTimeout(setTest, 5000);        // 일정 시간 뒤 함수 호출 (함수명,
 
 // createElement!
 const img = document.createElement("img");      // img 요소를 만든다
+const span = document.createElement("span");
 img.src = "/img/test.img";      // img 주소 설정
 
 
 
 // append
-document.body.appendChild(img);     // body에 맨 마지막 자식으로 추가
+document.body.append(img, span, "Text도 가능!");    // 여러 노드와 문자열도 가능
+document.body.appendChild(img);     // body에 맨 마지막 자식으로 추가 (하나의 노드만 가능, 문자열 불가)
 document.body.prependChild(img);     // body에 맨 첫 자식으로 추가
+
+
+
+// forEach 형식이 매우 다양, 유용
+function writeConsole(element, index, array){       // 순서 중요
+    console.log(element, index, array);
+}
+const korean = ["가", "나", "다", "라", "마"];
+
+korean.forEach(writeConsole);
+korean.forEach(function(element, index, array){
+    console.log(element, index, array);
+});
+korean.forEach((element, index, array) => console.log(element, index, array));
+
+
+
+// geolocation 위치를 알 수 있음, 쩜
+function successFunc(position){     // 객체를 반환해 줌
+    console.log(position);
+    console.log(position.coords.latitude, position.coords.longitude);
+    // 위도와 경도, 구글 지도에서 찾을 수 있음
+}
+
+function errorFunc(){
+    alert("위치를 찾을 수 없대");
+}
+
+navigator.geolocation.getCurrentPosition(successFunc, errorFunc);       // 성공했을 때 함수, 실패
+/*
+    openweathermap.org에서 api를 사용할 수 있음 for free!
+
+    회원가입 하고 위에 API 메뉴로 간다음, Current Weather Data에
+    API doc 클릭, By geographic coordinates API call 찾으셈 위쪽에 있어
+    밑에 url에 {}를 successFunc함수로 받은 위도와 경도로 바꿔주고, api key는
+    내 프로필에 가면 있음
+
+    밑에 추가할 수 있는 매개변수들이 있는데
+    &units=metric&lang=kr   를 추가하여 섭씨온도와 한국어로 보자
+
+    fetch(url)를 작성 후, f12 -> network가서 잘 작동하는지 확인
+    정확한 내용은 wetube 강의를 듣기 (유료임)
+*/
