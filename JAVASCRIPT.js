@@ -1,4 +1,5 @@
 // document 메소드 위주로 정리 한 번 싹 해야 될 듯, 내일 알아서 하셈
+// Ctrl + Shift + Delete = 캐쉬 삭제
 
 // Variable Type
 const sex = "Male";     // 바뀌지 않는 값 상수
@@ -263,7 +264,7 @@ img.src = "/img/test.img";      // img 주소 설정
 // append
 document.body.append(img, span, "Text도 가능!");    // 여러 노드와 문자열도 가능
 document.body.appendChild(img);     // body에 맨 마지막 자식으로 추가 (하나의 노드만 가능, 문자열 불가)
-document.body.prependChild(img);     // body에 맨 첫 자식으로 추가
+document.body.prepend(img);     // body에 맨 첫 자식으로 추가
 
 
 

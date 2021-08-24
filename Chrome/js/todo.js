@@ -29,7 +29,7 @@ function makeToDo(toDo){
     button.innerText = "❌";
     button.addEventListener("click", deleteToDo);
 
-    li.append(span, button);
+    li.append(button, span);
     toDoList.appendChild(li);
 }
 

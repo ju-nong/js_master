@@ -8,23 +8,29 @@
     <title>Chrome</title>
 </head>
 <body>
-    <h2 id="clock">00:00</h2>
-    <form id="login-form" class="hidden">
-        <input required maxlength="15" type="text" placeholder="What is your name?">
-        <button>Log In</button>
-    </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <form id="todo-form">
-        <input type="text" required placeholder="Write a To Do and Press Enter">
-    </form>
-    <ul id="todo-list"></ul>
-    <div id="quote">
-        <span></span>
-        <span></span>
-    </div>
     <div id="weather">
         <span></span>
         <span></span>
+    </div>
+    <h2 id="clock">
+        <span>00:00</span>
+    </h2>
+    <div id="flexBox">
+        <form id="login-form" class="hidden item">
+            <input required maxlength="15" type="text" placeholder="What is your name?" class="formItem">
+            <button class="formItem">Log In</button>
+        </form>
+        <h1 id="greeting" class="hidden item"></h1>
+        <form id="todo-form" class="item">
+            <input type="text" required placeholder="Write and Press Enter" class="formItem">
+        </form>
+        <ul id="todo-list" class="item">
+            <li>To Do List</li>
+        </ul>
+        <div id="quote" class="item">
+            <span></span>
+            <span></span>
+        </div>
     </div>
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>
